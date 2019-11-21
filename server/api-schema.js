@@ -14,7 +14,7 @@ function createAuthor() {
   }
 }
 
-function createBlog(author_id) {
+function createBlog(authorId) {
   let content = [];
 
   for (let i = 0; i <= randomNumber(1,3); i++) {
@@ -23,9 +23,12 @@ function createBlog(author_id) {
 
   return {
     id: faker.random.uuid(),
-    author_id,
-    created_at: faker.date.past(),
-    image_url: faker.image.imageUrl(),
+    authorId,
+    createdAt: faker.date.past(),
+    imageUrl: faker.image.imageUrl(),
+    liked: false,
+    title: faker.company.catchPhrase(),
+    subtitle: faker.hacker.phrase(),
     content,
   }
 }

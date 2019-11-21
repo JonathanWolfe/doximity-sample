@@ -1,9 +1,6 @@
 
 module.exports = {
   mode: 'universal',
-  /*
-  ** Headers of the page
-  */
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -15,37 +12,21 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
-  css: [
-  ],
-  /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-  ],
-  /*
-  ** Nuxt.js dev-modules
-  */
-  buildModules: [
-  ],
-  /*
-  ** Nuxt.js modules
-  */
+  plugins: [],
+  buildModules: [],
   modules: [
+    '@nuxtjs/apollo'
   ],
-  /*
-  ** Build configuration
-  */
+  apollo: {
+    includeNodeModules: true,
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://localhost:3000/graphql',
+      }
+    }
+  },
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend (config, ctx) {
     }
   },

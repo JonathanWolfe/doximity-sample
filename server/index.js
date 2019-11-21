@@ -6,12 +6,7 @@ const app = express()
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
-
-const apiSchema = require('./api-schema')()
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router(apiSchema)
-const middlewares = jsonServer.defaults()
+const graphqlMiddleware = require('./graphql/middleware')
 
 async function start () {
   // Init Nuxt.js
@@ -19,8 +14,7 @@ async function start () {
 
   const { host, port } = nuxt.options.server
 
-  app.use('/api', middlewares)
-  app.use('/api', router)
+  app.use('/graphql', graphqlMiddleware)
 
   // Build only in dev mode
   if (config.dev) {
