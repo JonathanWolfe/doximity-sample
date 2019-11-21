@@ -15,76 +15,74 @@ Run `npm run test`
 
 ## How to Submit your Completed Assignment
 
-1. Fork the `vue-blog` repository by visiting [this page](https://gitlab.com/doximity-review/vue-blog/forks) and clicking the fork button on the top right.
-2. Create a new branch by visiting https://gitlab.com/`YOUR-GITLAB`/vue-blog/branches - name your branch after your `firstname-lastname`.
-3. At this point, you can grab the SSH URL at the top of https://gitlab.com/`YOUR-GITLAB`/vue-blog, clone the repository locally and do you work on the newly created branch.
-4. Visit https://gitlab.com/`YOUR-GITLAB`/vue-blog/project_members under "Add a Member" type in `doximity-review` under "Select members to invite", select a role of `Master` and click "Add to project".
-5. Once you are ready to submit your work, go back to https://gitlab.com/`YOUR-GITLAB`/vue-blog and click on "Create merge Request" on the top right.
+1. Fork the `vue-graphql-blog` repository by visiting [this page](https://gitlab.com/doximity-review/vue-graphql-blog/forks) and clicking the fork button on the top right.
+2. Create a new branch by visiting https://gitlab.com/`YOUR-GITLAB`/vue-graphql-blog/branches - name your branch after your `firstname-lastname`.
+3. At this point, you can grab the SSH URL at the top of https://gitlab.com/`YOUR-GITLAB`/vue-graphql-blog, clone the repository locally and do you work on the newly created branch.
+4. Visit https://gitlab.com/`YOUR-GITLAB`/vue-graphql-blog/project_members under "Add a Member" type in `doximity-review` under "Select members to invite", select a role of `Master` and click "Add to project".
+5. Once you are ready to submit your work, go back to https://gitlab.com/`YOUR-GITLAB`/vue-graphql-blog and click on "Create merge Request" on the top right.
 6. From the page above, title and describe your assignment. Then select `doximity-review` from the "Assignee" dropdown, and click the "Submit merge request" button.
 
 ## Please Read the Following Carefully
 
-* Feel free to take advantage to take advantage of any features of [nuxt](https://nuxtjs.org/) such as vuex or middleware.
-* The test included is a placeholder, better tests are encouraged particularly for logic you added.  Feel free to
-switch the testing framework for either e2e or unit.
-* Avoid pushing indentation changes to current files, this makes the changeset harder to read.
-* Only use the endpoints specified, we will reiterate this throughout the assignment.
+* Avoid pushing indentation changes to current files, this makes the changeset harder to read
+* Only use the graphql server for data requests, we will reiterate this throughout the assignment
 * Once completed, email a link to your Pull Request to jobs@doximity.com
+
+* This example is setup to determine your proficiency with javascript, apollo and graphql in the vue ecosystem.  The following criteria will weigh heaviest on your code review.
+ - If you used apollo (either directly with apollo client or vue-apollo) to communicate with graphql.
+ - The reusability of your infinite scroll solution in other contexts.
+ - Code coverage via tests, and quality of those tests.
+ 
+* The following will not weigh heavily
+ - The changes you make to css/sass styling
 
 ## Endpoints
 
 ### Nuxt
 http://localhost:3000
 
-### API
+### Graphql
+http://localhost:3000/graphql
 
-|What|Location|
-Documentation
-- http://localhost:3000/api
+```js
+query { 
+  paginatedBlog(first: 5, offset: 3) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      count
+    }
+    blogs {
+      id
+      author {
+        id
+      }
+    }
+  }
+}
 
-#### Blogs
-http://localhost:3000/api/blogs
-
-Query Params
- - _page -> the page to display
- - _limit -> The limit
-
-#### Author
-http://localhost:3000/api/authors
-
-Query Params
- - q = full text search
-
-example searching for text
-http://localhost:3000/api/authors?q=text
+mutation { 
+  toggleBlogLiked(id: "51121d7b-8405-4d21-ab79-47f4ef312c0b") {
+    id
+    liked
+  }
+}
+```
 
 ### Story 1
-
 ```
-Story Title: As a reader I would like to see all articles displayed so that I can read the blog.
+Story Title: As a reader of the blog.  I would like to see a continuous stream of blogs as I read through the blog page.
 
-Description: You will find a blank index page with boilerplate for an index page.  When this page is opened display a
- page with the first 10 blog posts from the site.  In the header, create a link to the blog along with a count of how
- many blogs are in the site.
+Description: Adjust the index page and its components to facility Infinite scroll of blog posts.  We should lazily request the next blog.
+
 ```
 
 ### Story 2
 ```
-Story Title: As a reader I would like see the full contents of a blog and relevant content related to the blog's author.
+Story Title: As a reader I would like to be able to like or unlike any blog.
 
-Description: Create a Page to display a full blog post along with a list of the Authors other blogs that are on the
-site.
-
+Description: Using Graphql.  Toggle the liked status of an article.
 ```
-
-### Story 3
-```
-Story Title: As a reader I would like to search the blog so that I can find articles which interest me.
-
-Description: Leverage the current sidebar HTML under 'Search Articles' to provide search functionality.  When an
-article is selected, navigate to a 'show view for the article'
-```
-
 
 ## What to Expect after you Submit
 
