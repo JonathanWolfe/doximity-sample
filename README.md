@@ -73,7 +73,7 @@ mutation {
 ```
 Story Title: As a reader of the blog.  I would like to see a continuous stream of blogs as I read through the blog page.
 
-Description: Adjust the index page and its components to facility Infinite scroll of blog posts.  We should lazily request the next blog.
+Description: Adjust the index page and its components to allow Infinite scroll of blog posts.  We should lazily request the next blog and only request 1 blog at a time to be read.
 
 ```
 
