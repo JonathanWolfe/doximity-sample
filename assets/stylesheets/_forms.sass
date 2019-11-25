@@ -1,0 +1,206 @@
+@import variables
+
+.full-width-forms
+  .btn,
+  a,
+  button,
+  submit,
+  select,
+  textarea,
+  input
+    &:not([type='checkbox']):not([type='radio'])
+      width: 100%
+
+fieldset
+  border-radius: $radius
+  border: 0
+  margin: 1em 0
+  legend
+    font-weight: 400
+    padding: 0 0.25em
+
+label
+  @include user-select(none)
+  position: relative
+  sup
+    opacity: 0.5
+    position: absolute
+    top: 0.9em
+    left: 0.3em
+
+input, select, textarea, button, .btn
+  font-weight: 400
+
+input, select, textarea
+  @include appearance-none
+  border-radius: $radius
+  border: none
+  background-color: $input-background-color
+  box-shadow: none
+  color: $text
+  display: block
+  font-family: $font
+  font-size: inherit
+  outline: none
+  padding: 0.49em $input-left-right-padding
+  &:hover, &:focus
+    border-color: $hover
+    transition: $all
+    background-color: $input-background-color-hover
+  &:focus
+    @include box-shadow(inset 0 0 0 1px #AAA)
+
+textarea
+  padding: $input-left-right-padding
+
+select
+  background-image: url($svg-arrow-updown)
+  background-size: 1em
+  background-repeat: no-repeat
+  background-position: 99% 50%
+  line-height: 1.1
+  padding: 0.78em $input-left-right-padding
+  padding-right: 1.4em
+  &[multiple]
+    background-image: none
+    height: 10em
+    padding: $input-left-right-padding
+    overflow: scroll
+
+input
+  &:not(.btn):not([type='checkbox']):not([type='radio'])
+    min-height: 2.7em
+
+  &[type='file']
+    background-color: $input-background-color
+    width: 100%
+    font-size: 12px
+    padding: 1.02em $input-left-right-padding
+
+  &[type='range']
+    padding: 0.870em 0.1em
+    &:focus
+      outline: 0
+
+  &[type='search']
+    box-sizing: border-box !important
+    @include appearance-none
+
+  &[type='checkbox'], &[type='radio']
+    background-color: $input-background-color
+    border: $border-width solid #888
+    display: inline-block
+    height: 1em
+    margin: 0 0.3em -0.1em 0
+    padding: 0
+    position: relative
+    top: 0
+    width: 1em
+    overflow: hidden
+    @include box-shadow(none)
+    &:checked
+      background-color: $input-checkbox-checked
+      border-color: $input-checkbox-checked
+    &:disabled
+      opacity: 0.3
+
+  &[type='checkbox']
+    border-radius: $radius
+    &:checked
+      border: none
+      &:before
+        bottom: 0
+        color: white
+        content: '\f129'
+        font-family: $icons
+        font-size: 0.8em
+        left: 0
+        line-height: 1
+        position: absolute
+        right: 0
+        text-align: center
+        top: 0.05em
+
+  &[type='radio']
+    border-radius: $round
+    &:checked
+      &:before
+        color: white
+        content: ' '
+        height: 1em
+        overflow: hidden
+        position: absolute
+        text-align: center
+        top: 0
+        width: 1em
+
+// Adjustments for iOS Safari
+
+@media screen and (-webkit-min-device-pixel-ratio: 0)
+
+  input:not(.btn):not([type='checkbox']):not([type='radio']), select, textarea
+    min-height: $input-height
+
+// Adjustments to Firefox
+
+@-moz-document url-prefix()
+
+  input
+    &[type='file']
+      padding: 1.0em $input-left-right-padding
+    &[type='range']
+      border: 0
+      margin: 0.6em 0 0 0
+
+  select
+    padding: 0.6410em $input-left-right-padding
+    &:-moz-focusring
+      color: transparent
+      text-shadow: 0 0 0 #000
+      transition: none
+
+// Adjustments for internet explorer 10+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+
+  select
+    padding: 0.65em $input-left-right-padding
+    padding-right: $input-left-right-padding
+
+  input
+
+    &[type='file']
+      &::-ms-value
+        background: $input-background-color
+      &::-ms-value, &::-ms-value
+        box-shadow: none
+        border: 0
+
+    &[type='range']
+      border-color: transparent
+
+// Adjustments for IE 8/9
+
+.ie8, .ie9
+
+  select
+    padding: 0.65em $input-left-right-padding
+    padding-right: $input-left-right-padding
+
+  input
+
+    &[type='checkbox'], &[type='radio']
+      background: transparent
+      border: 0
+      &:checked
+        background-color: transparent
+        border-color: transparent
+      &:focus
+        border: 0
+
+    &[type='file']
+      height: $input-height + 1.1em
+
+    &[type='range']
+      height: 2em
+      line-height: 0

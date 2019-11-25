@@ -1,0 +1,19 @@
+@import variables
+
+// Heroes
+
+.hero
+  background-color: $gray-lightest
+  font-size: 1.5em
+  padding: 2% 0
+  .section
+    @extend .center
+  h1
+    line-height: 1.1
+
+@media screen and (max-width: $handheld)
+
+  .hero
+    font-size: 1em
+    .btn
+      font-size: 1em

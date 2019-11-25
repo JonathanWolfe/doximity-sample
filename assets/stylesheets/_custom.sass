@@ -1,0 +1,56 @@
+@import variables
+@import mixins
+
+// Local variables
+// place local variables here
+
+// Globals
+// place global overrides here
+
+// Syntax highlighting
+// place sytax highlighting here
+
+.highlight
+  background: $bg-code
+  border-radius: $radius
+  pre
+    padding: 0
+    margin: 0
+    font-family: $code
+
+// Article Page Styles
+
+.article-body
+  padding-bottom: 15%
+  h1, h2, h3, h4, h5, h6
+    line-height: 1.2
+  h1
+    font-size: 44px
+  h2
+    font-size: 36px
+  h3
+    font-size: 32px
+  h4
+    font-size: 28px
+  h5
+    font-size: 24px
+  h6
+    font-size: 20px
+  p, li
+    font-size: 18px
+  li
+    line-height: 1.1
+  img
+    width: auto
+    max-width: 100%
+  ul, ol
+    @extend .list
+    padding-left: 25px
+
+@media screen and (max-width: $phablet)
+
+  // place overrides here
+
+@media screen and (max-width: $handheld)
+
+  // place overrides here

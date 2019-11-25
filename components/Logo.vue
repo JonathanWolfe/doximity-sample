@@ -1,5 +1,5 @@
 <template>
   <a href="#" class="logo">
-    <img src="~assets/logo.png">
+    <img src="~assets/images/logo-doximity.svg">
   </a>
 </template>

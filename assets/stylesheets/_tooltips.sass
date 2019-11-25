@@ -1,0 +1,282 @@
+@import variables
+
+[class*=tooltip-]
+  position: relative
+  display: inline-block
+  &:after, &:before
+    border-radius: 0.1em
+    position: absolute
+    visibility: hidden
+    opacity: 0
+    z-index: 1000000
+    pointer-events: none
+    @include transform(translate3d(0, 0, 0))
+    @include transition(.3s ease)
+    @include transition-delay(0s)
+  &:hover
+    &:after, &:before
+      visibility: visible
+      opacity: 1
+      @include transition-delay(.1s)
+  &:before
+    content: ''
+    position: absolute
+    background: 0 0
+    border: 6px solid transparent
+    z-index: 1000001
+  &:after
+    background: $tooltop-background-fallback
+    background: $tooltop-background
+    color: #fff
+    padding: 8px 10px
+    font-size: 1em
+    line-height: 1em
+    white-space: nowrap
+  &[aria-label]:after
+    content: attr(aria-label)
+  &[data-hint]:after
+    content: attr(data-hint)
+
+[aria-label='']
+  &:after, &:before
+    display: none !important
+
+[data-hint='']
+  &:after, &:before
+    display: none !important
+
+.tooltip-top-left:before,
+.tooltip-top-right:before,
+.tooltip-top:before
+  border-top-color: $tooltop-background-fallback
+  border-top-color: $tooltop-background
+
+.tooltip-bottom-left:before,
+.tooltip-bottom-right:before,
+.tooltip-bottom:before
+  border-bottom-color: $tooltop-background-fallback
+  border-bottom-color: $tooltop-background
+
+.tooltip-top
+  &:after
+    bottom: 100%
+    left: 50%
+  &:before
+    bottom: 100%
+    left: 50%
+    margin-bottom: -11px
+    left: calc(50% - 6px)
+  &:after
+    @include transform(translateX(-50%))
+  &:hover
+    &:before
+      @include transform(translateY(-8px))
+    &:after
+      @include transform(translateX(-50%) translateY(-8px))
+
+.tooltip-bottom
+  &:after
+    top: 100%
+    left: 50%
+  &:before
+    top: 100%
+    left: 50%
+    margin-top: -11px
+    left: calc(50% - 6px)
+  &:after
+    @include transform(translateX(-50%))
+  &:hover
+    &:before
+      @include transform(translateY(8px))
+    &:after
+      @include transform(translateX(-50%) translateY(8px))
+
+.tooltip-right
+  &:before
+    border-right-color: $tooltop-background-fallback
+    border-right-color: $tooltop-background
+    margin-left: -11px
+    margin-bottom: -6px
+  &:after
+    margin-bottom: -14px
+    left: 100%
+    bottom: 50%
+  &:before
+    left: 100%
+    bottom: 50%
+  &:hover
+    &:after, &:before
+      @include transform(translateX(8px))
+
+.tooltip-left
+  &:before
+    border-left-color: $tooltop-background-fallback
+    border-left-color: $tooltop-background
+    margin-right: -11px
+    margin-bottom: -6px
+  &:after
+    margin-bottom: -14px
+    right: 100%
+    bottom: 50%
+  &:before
+    right: 100%
+    bottom: 50%
+  &:hover
+    &:after, &:before
+      @include transform(translateX(-8px))
+
+.tooltip-top-left
+  &:after
+    bottom: 100%
+    left: 50%
+  &:before
+    bottom: 100%
+    left: 50%
+    margin-bottom: -11px
+    left: calc(50% - 6px)
+  &:after
+    @include transform(translateX(-100%))
+    margin-left: 12px
+  &:hover
+    &:before
+      @include transform(translateY(-8px))
+    &:after
+      @include transform(translateX(-100%) translateY(-8px))
+
+.tooltip-top-right
+  &:after
+    bottom: 100%
+    left: 50%
+  &:before
+    bottom: 100%
+    left: 50%
+    margin-bottom: -11px
+    left: calc(50% - 6px)
+  &:after
+    @include transform(translateX(0))
+    margin-left: -12px
+  &:hover
+    &:after, &:before
+      @include transform(translateY(-8px))
+
+.tooltip-bottom-left
+  &:after
+    top: 100%
+    left: 50%
+  &:before
+    top: 100%
+    left: 50%
+    margin-top: -11px
+    left: calc(50% - 6px)
+  &:after
+    @include transform(translateX(-100%))
+    margin-left: 12px
+  &:hover
+    &:before
+      @include transform(translateY(8px))
+    &:after
+      @include transform(translateX(-100%) translateY(8px))
+
+.tooltip-bottom-right
+  &:after
+    top: 100%
+    left: 50%
+  &:before
+    top: 100%
+    left: 50%
+    margin-top: -11px
+    left: calc(50% - 6px)
+  &:after
+    @include transform(translateX(0))
+    margin-left: -12px
+  &:hover
+    &:after, &:before
+      @include transform(translateY(8px))
+
+.tooltip-large:after,
+.tooltip-medium:after
+  white-space: normal
+  line-height: 1.4em
+  word-wrap: break-word
+
+.tooltip-small:after
+  white-space: normal
+  line-height: 1.4em
+  word-wrap: break-word
+  width: 80px
+
+.tooltip-medium:after
+  width: 150px
+
+.tooltip-large:after
+  width: 300px
+
+.tooltip-error
+  &:after
+    background-color: $red
+
+.tooltip-warning
+  &:after
+    background-color: $orange
+
+.tooltip-info
+  &:after
+    background-color: $yellow
+
+.tooltip-success
+  &:after
+    background-color: $green
+
+.tooltip-always
+  &:after, &:before
+    opacity: 1
+    visibility: visible
+  &.tooltip-top
+    &:before
+      @include transform(translateY(-8px))
+    &:after
+      @include transform(translateX(-50%) translateY(-8px))
+  &.tooltip-top-left
+    &:before
+      @include transform(translateY(-8px))
+    &:after
+      @include transform(translateX(-100%) translateY(-8px))
+  &.tooltip-top-right
+    &:after, &:before
+      @include transform(translateY(-8px))
+  &.tooltip-bottom
+    &:before
+      @include transform(translateY(8px))
+    &:after
+      @include transform(translateX(-50%) translateY(8px))
+  &.tooltip-bottom-left
+    &:before
+      @include transform(translateY(8px))
+    &:after
+      @include transform(translateX(-100%) translateY(8px))
+  &.tooltip-bottom-right
+    &:after, &:before
+      @include transform(translateY(8px))
+  &.tooltip-left
+    &:after, &:before
+      @include transform(translateX(-8px))
+  &.tooltip-right
+    &:after, &:before
+      @include transform(translateX(8px))
+
+.tooltip-rounded:after
+  border-radius: 4px
+
+.tooltip-no-animate
+  &:after, &:before
+    @include transition-duration(0s)
+
+.tooltip-bounce
+  &:after, &:before
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24)
+
+@media screen and (max-width: $handheld)
+
+  [class*=tooltip-]
+    &:after, &:before
+      display: none

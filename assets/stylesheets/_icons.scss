@@ -1,0 +1,109 @@
+// Icons
+
+@font-face {
+  font-display: block;
+  font-family: "icons";
+  src: url("~assets/fonts/icons/icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-arrow-down:before,
+.icon-arrow-left:before,
+.icon-arrow-left-outline:before,
+.icon-arrow-right:before,
+.icon-arrow-right-outline:before,
+.icon-arrow-stem-down:before,
+.icon-arrow-stem-down-circle:before,
+.icon-arrow-stem-download:before,
+.icon-arrow-stem-left:before,
+.icon-arrow-stem-left-circle:before,
+.icon-arrow-stem-right:before,
+.icon-arrow-stem-right-circle:before,
+.icon-arrow-stem-up:before,
+.icon-arrow-stem-up-circle:before,
+.icon-arrow-up:before,
+.icon-arrow-updown:before,
+.icon-check:before,
+.icon-check-alt:before,
+.icon-close:before,
+.icon-close-empty:before,
+.icon-close-outline:before,
+.icon-logo:before,
+.icon-logo-d:before,
+.icon-logo-type:before,
+.icon-menu:before,
+.icon-share:before,
+.icon-share-email:before,
+.icon-share-facebook:before,
+.icon-share-google:before,
+.icon-share-linkedin:before,
+.icon-share-pinterest:before,
+.icon-share-reddit:before,
+.icon-share-twitter:before,
+.icon-share-whatsapp:before,
+.icon-social-facebook:before,
+.icon-social-google:before,
+.icon-social-linkedin:before,
+.icon-social-twitter:before,
+.icon-vital:before,
+.icon-x:before,
+.icon-x-alt:before {
+  display: inline-block;
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-arrow-down:before { content: "\f105"; }
+.icon-arrow-left:before { content: "\f106"; }
+.icon-arrow-left-outline:before { content: "\f11e"; }
+.icon-arrow-right:before { content: "\f107"; }
+.icon-arrow-right-outline:before { content: "\f11f"; }
+.icon-arrow-stem-down:before { content: "\f120"; }
+.icon-arrow-stem-down-circle:before { content: "\f121"; }
+.icon-arrow-stem-download:before { content: "\f122"; }
+.icon-arrow-stem-left:before { content: "\f123"; }
+.icon-arrow-stem-left-circle:before { content: "\f124"; }
+.icon-arrow-stem-right:before { content: "\f125"; }
+.icon-arrow-stem-right-circle:before { content: "\f126"; }
+.icon-arrow-stem-up:before { content: "\f127"; }
+.icon-arrow-stem-up-circle:before { content: "\f128"; }
+.icon-arrow-up:before { content: "\f108"; }
+.icon-arrow-updown:before { content: "\f10f"; }
+.icon-check:before { content: "\f100"; }
+.icon-check-alt:before { content: "\f129"; }
+.icon-close:before { content: "\f102"; }
+.icon-close-empty:before { content: "\f103"; }
+.icon-close-outline:before { content: "\f104"; }
+.icon-logo:before { content: "\f11c"; }
+.icon-logo-d:before { content: "\f109"; }
+.icon-logo-type:before { content: "\f11d"; }
+.icon-menu:before { content: "\f11b"; }
+.icon-share:before { content: "\f110"; }
+.icon-share-email:before { content: "\f111"; }
+.icon-share-facebook:before { content: "\f112"; }
+.icon-share-google:before { content: "\f113"; }
+.icon-share-linkedin:before { content: "\f114"; }
+.icon-share-pinterest:before { content: "\f115"; }
+.icon-share-reddit:before { content: "\f11a"; }
+.icon-share-twitter:before { content: "\f118"; }
+.icon-share-whatsapp:before { content: "\f119"; }
+.icon-social-facebook:before { content: "\f10a"; }
+.icon-social-google:before { content: "\f10b"; }
+.icon-social-linkedin:before { content: "\f10c"; }
+.icon-social-twitter:before { content: "\f10d"; }
+.icon-vital:before { content: "\f101"; }
+.icon-x:before { content: "\f12a"; }
+.icon-x-alt:before { content: "\f10e"; }

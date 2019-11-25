@@ -7,12 +7,25 @@
           <label for="menu-toggle" id="menu-toggle-label"></label>
           <input id="menu-toggle" type="checkbox">
           <ul class="menu">
-            <li class="float-right"><a href="#">Articles</a></li>
+            <li class="float-right">
+              <a href="#">Articles</a>
+            </li>
           </ul>
         </nav>
       </div>
     </div>
-    <nuxt />
+    <div class="contents">
+      <nuxt />
+    </div>
+    <div class="row footer">
+      <div class="section center">
+        <p>
+          <i class="icon-logo-d gray i2x" />
+          <br />
+          <small>© 2019 Doximity, Inc</small>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 

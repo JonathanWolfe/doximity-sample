@@ -1,0 +1,162 @@
+@import variables
+
+// buttons
+
+.btn
+  @include appearance-none
+  background: transparent
+  border-radius: $radius
+  border: $border-width solid $gray
+  box-shadow: none
+  color: $gray
+  cursor: pointer
+  display: inline-block
+  height: auto
+  line-height: 0.98
+  margin: 0
+  outline: none
+  padding: 0.81em 1.5em
+  text-align: center
+  text-decoration: none
+  user-select: none
+  white-space: nowrap
+  i
+    color: inherit
+  &:hover
+    border-color: $gray
+  &.solid, &:hover
+    color: $white
+    background: $gray
+  &.full
+    padding-left: 0.5em
+    padding-right: 0.5em
+  &.fill
+    width: 100%
+    height: 100%
+  &[class*='col-'], .row
+    border-radius: 0
+  &[class*='col-']
+    min-width: 0
+
+  // colors
+  &.white
+    color: $white
+    border-color: $white
+    &.solid, &:hover
+      color: $black
+      background: $white
+  &.gray-lighter
+    color: $gray-lighter
+    border-color: $gray-lighter
+    &.solid, &:hover
+      color: $gray
+      background: $gray-lighter
+  &.gray-light
+    color: $gray-light
+    border-color: $gray-light
+    &.solid, &:hover
+      color: $white
+      background: $gray-light
+  &.gray-dark
+    color: $gray-dark
+    border-color: $gray-dark
+    &.solid, &:hover
+      color: $white
+      background: $gray-dark
+  &.black
+    color: $black
+    border-color: $black
+    &.solid, &:hover
+      color: $white
+      background: $black
+  &.red
+    color: $red
+    border-color: $red
+    &.solid, &:hover
+      color: $white
+      background: $red
+  &.orange
+    color: $orange
+    border-color: $orange
+    &.solid, &:hover
+      color: $white
+      background: $orange
+  &.yellow
+    color: $yellow
+    border-color: $yellow
+    &.solid, &:hover
+      color: $white
+      background: $yellow
+  &.blue
+    color: $blue
+    border-color: $blue
+    &.solid, &:hover
+      color: $white
+      background: $blue
+  &.green
+    color: $green
+    border-color: $green
+    &.solid, &:hover
+      color: $white
+      background: $green
+
+  // solids
+
+  &.solid
+    &:hover, &:active
+      opacity: 0.9
+
+  // no outline
+
+  &.no-outline
+    border-color: transparent
+
+  // sizes
+
+  &.large
+    font-size: 1.2em
+    padding: 0.82em 1.7em
+    word-wrap: normal
+  &.small
+    padding: 0.5em 0.9em
+    font-size: 0.9em
+  &.tiny
+    padding: 0.3em 0.8em
+    font-size: 0.8em
+
+  // shapes
+
+  &.round
+    border-radius: $round
+
+  // states
+
+  &:hover
+    transition: $all
+    opacity: 0.8
+
+  &:disabled,
+  &.disabled,
+  &:disabled:hover,
+  &.disabled:hover,
+  &:disabled:focus,
+  &.disabled:focus
+    background-color: transparent
+    border-color: $gray-light
+    color: $gray-light
+    cursor: default
+    opacity: 0.2
+
+
+// Adjustments for Firefox
+
+@-moz-document url-prefix()
+
+  .btn
+    padding: 0.78em 1.5em
+
+@media screen and (max-width: $phablet-handheld)
+
+  .btn
+    display: block
+    min-width: 0

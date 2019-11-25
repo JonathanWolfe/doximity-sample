@@ -1,0 +1,39 @@
+@import variables
+@import mixins
+
+// Components
+
+.page-components
+  // reserved
+.page-components-icon
+  display: block
+  float: left
+  height: 50px
+  width: 100px
+  margin: 15px 0
+  padding: 20px 10px
+  i
+    background: $gray-lightest
+    border-radius: 5px
+    display: block
+    font-size: 200%
+    text-align: center
+.page-components-forms
+  div
+    padding: 1px 2px
+
+.grid-preview
+  margin: 2em 0
+  [class*='col-'], .autogrid .col
+    padding-top: 0.5em
+    padding-bottom: 0.5em
+    background: #eee
+    font-size: 0.7em
+    text-align: center
+    border: $border-width solid #ddd
+    font-family: $code
+    overflow: hidden
+.empty-grid-preview
+  margin: 1em 0
+  padding: 1em 1em 0 1em
+  background: $gray-lightest
