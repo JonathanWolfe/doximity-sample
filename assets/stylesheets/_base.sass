@@ -148,9 +148,6 @@ dd
   display: block
   clear: both
   padding-bottom: 100px
-  &:after
-    clear: both
-    display: block
 .page
   min-height: 25em
 .row
@@ -161,6 +158,13 @@ dd
   margin: 0 auto
   width: 100%
   max-width: $laptop-small
+.contents,
+.row,
+.section
+  &:after
+    content: ""
+    display: block
+    clear: both
 
 @media screen and (max-width: $phablet)
 

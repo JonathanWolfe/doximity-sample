@@ -65,7 +65,8 @@ nav
     right: -12.5em
     top: 0
 
-#menu-toggle, #menu-toggle-label
+#menu-toggle,
+#menu-toggle-label
   cursor: pointer
   display: none
   height: $header-height
@@ -122,7 +123,9 @@ nav
     margin-left: 0
 
 .header-no-menu
-  #menu-toggle, #menu-toggle-label, .menu
+  #menu-toggle,
+  #menu-toggle-label,
+  .menu
     display: none
 
 // Mobile
@@ -135,7 +138,8 @@ nav
 
 @media screen and (max-width: $phablet)
 
-  #menu-toggle, #menu-toggle-label
+  #menu-toggle,
+  #menu-toggle-label
     display: block
 
   .menu
@@ -148,6 +152,7 @@ nav
     a
       border-top: 1px solid #efefef
       padding: 1em
+      width: 100%
     ul
       li ul
         display: block
