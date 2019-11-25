@@ -1,0 +1,584 @@
+@import variables
+
+// Helpers
+
+// Lists
+
+ul, ol
+  &.list
+    padding-left: 1em
+    li
+      padding-bottom: 0.5em
+ul.list
+  li
+    list-style: disc
+  ul
+    margin-top: 0
+    li
+      list-style: circle
+ol.list
+  li
+    list-style: decimal
+
+// Typography Utilities
+
+.bold-headers
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+.italic
+  font-style: italic
+.smaller
+  font-size: 0.8em
+.small
+  font-size: 0.9em
+.medium
+  font-size: 1.1em
+.large
+  font-size: 1.2em
+.align-left
+  text-align: left
+.align-right
+  text-align: right
+.break-word
+  word-break: break-all
+.thin
+  font-weight: 100
+.uppercase
+  text-transform: uppercase
+.padding
+  padding: 1em
+.line-height-normal
+  line-height: 1
+.text-reset *
+  line-height: 1.1
+  margin: 0 0 0.2em 0
+.quotations
+  // needs a relative parent, use .relative in the parent
+  &:before
+    display: block
+    content: '\201C'
+    font-size: 4em
+    position: absolute
+    left: -0.5em
+    top: -0.5em
+    color: #DDD
+    color: rgba(0,0,0,0.2)
+
+// Narrow Content
+
+.narrow
+  max-width: 34em
+  margin: 0 auto
+.narrow-large
+  max-width: 44em
+  margin: 0 auto
+.narrow-small
+  max-width: 20em
+  margin: 0 auto
+
+// Alignment
+
+.auto
+  margin: 0 auto
+.block
+  display: block
+.center, .center-always
+  text-align: center
+.clear
+  clear: both
+.fixed
+  position: fixed
+.float-left
+  float: left
+.float-right
+  float: right
+.inline
+  display: inline
+.inline-block
+  display: inline-block
+.padded
+  [class*='col-'], .col
+    padding-left: $grid-padding
+    padding-right: $grid-padding
+.right-padded
+  [class*='col-'], .col
+    padding-right: $grid-padding-single-side
+.empty
+  padding: 10% 0
+.empty-large
+  padding: 20% 0
+
+// Borders
+
+.border-top
+  border-top: 1px solid $gray-lighter
+.border-right
+  border-right: 1px solid $gray-lighter
+.border-bottom
+  border-bottom: 1px solid $gray-lighter
+.border-left
+  border-left: 1px solid $gray-lighter
+
+// Columns
+
+[class*='list-'] li
+  padding-right: 1.5em
+
+.list-2-col
+  @include column-count(2)
+.list-3-col
+  @include column-count(3)
+.list-4-col
+  @include column-count(4)
+
+// Positions
+
+.absolute
+  position: absolute
+.relative
+  position: relative
+
+// Additions
+
+.margin
+  margin: 2%
+
+// Removals
+
+.no-wrap
+  white-space: nowrap
+.no-padding-top
+  padding-top: 0
+.no-padding-bottom
+  padding-bottom: 0
+.no-margins *
+  margin: 0
+.no-margin-top
+  margin-top: 0
+.no-margin-bottom
+  margin-bottom: 0
+.no-first-last-margins
+  *
+    &:first-child
+      margin-top: 0
+    &:last-child
+      margin-bottom: 0
+
+// Lighten all typography for dark backgrounds
+
+.light-text
+  *:not(input), a:not(input)
+    color: white
+
+// Middle anything
+
+.middle
+  display: table
+  width: 100%
+.middle-inner
+  display: table-cell
+  vertical-align: middle
+
+// Styled Elements
+
+.disabled
+  color: $gray-light
+.radius
+  border-radius: $radius
+.round
+  border-radius: $round
+.round-corners
+  border-radius: $round-corners
+.box
+  border-radius: $radius
+  border: $border-width solid #ddd
+  margin: 1em 0
+  padding: 1em
+.circle
+  border-radius: $round
+  display: block
+  width: 5em
+  height: 5em
+  margin: 0 auto
+  position: relative
+.circle-inner
+  position: absolute
+  text-align: center
+  width: 100%
+  padding-top: 14%
+  font-size: 2em
+
+// Errors
+
+.error_explanation
+  padding: 0 1em
+  border: 1px solid $red
+  ul
+    color: $red
+
+// Opacities
+
+.opacity-half
+  opacity: 0.5
+
+.opacity-1
+  opacity: 0.1
+.opacity-2
+  opacity: 0.2
+.opacity-3
+  opacity: 0.3
+.opacity-4
+  opacity: 0.4
+.opacity-5
+  opacity: 0.5
+.opacity-6
+  opacity: 0.6
+.opacity-7
+  opacity: 0.7
+.opacity-8
+  opacity: 0.8
+.opacity-9
+  opacity: 0.9
+.opaque
+  opacity: 1
+
+// Colors
+
+.white
+  @include color($white)
+.gray-lightest
+  @include color($gray-lightest)
+.gray-lighter
+  @include color($gray-lighter)
+.gray-light
+  @include color($gray-light)
+.gray-medium
+  @include color($gray-medium)
+.gray
+  @include color($gray)
+.gray-dark
+  @include color($gray-dark)
+.black
+  @include color($black)
+.red
+  @include color($red)
+.red-bright
+  @include color($red-bright)
+.red-light
+  @include color($red-light)
+.orange
+  @include color($orange)
+.yellow
+  @include color($yellow)
+.green
+  @include color($green)
+.blue
+  @include color($blue)
+
+// HR Colors
+
+hr
+  &.red
+    background: $red
+  &.green
+    background: $green
+  &.blue
+    background: $blue
+
+// Blockquote colors
+
+blockquote
+  &.blockquote-red
+    border-left-color: $red
+  &.blockquote-green
+    border-left-color: $green
+  &.blockquote-blue
+    border-left-color: $blue
+
+// Backgrounds
+
+.bg
+  background: $gray-lightest
+.bg-white
+  background: #FFF
+
+// Backgrounds (Gradients)
+
+.bg-default,
+.bg-black,
+.bg-gray,
+.bg-blue,
+.bg-red,
+.bg-orange,
+.bg-green
+  @extend .light-text
+
+.bg-default
+  background: $bg-default-fallback
+  background: $bg-default
+.bg-black
+  background: $bg-black-fallback
+  background: $bg-black
+.bg-gray
+  background: $bg-gray-fallback
+  background: $bg-gray
+.bg-gray-light
+  background: $bg-gray-light-fallback
+  background: $bg-gray-light
+.bg-gray-lighter
+  background: $bg-gray-lighter
+.bg-gray-lightest
+  background: $bg-gray-lightest
+.bg-blue
+  background: $bg-blue-fallback
+  background: $bg-blue
+.bg-red
+  background: $bg-red-fallback
+  background: $bg-red
+.bg-orange
+  background: $bg-orange-fallback
+  background: $bg-orange
+.bg-green
+  background: $bg-green-fallback
+  background: $bg-green
+
+// Overlays
+
+[class*='overlay-']
+  height: 100%
+  width: 100%
+.overlay-default
+  background-image: $overlay-default
+.overlay-white
+  background-image: $overlay-white
+.overlay-black
+  background-image: $overlay-black
+.overlay-gray
+  background-image: $overlay-gray
+.overlay-blue
+  background-image: $overlay-blue
+.overlay-red
+  background-image: $overlay-red
+.overlay-orange
+  background-image: $overlay-orange
+.overlay-green
+  background-image: $overlay-green
+
+// Forms
+
+input
+  &.bg-black
+    background: $black
+    color: $white
+    &:hover, &:focus
+      @include box-shadow(inset 0 0 0 1px $black)
+  &.bg-gray-dark
+    background: $gray-dark
+    color: $white
+    &:hover, &:focus
+      @include box-shadow(inset 0 0 0 1px $gray-dark)
+  &.bg-gray
+    background: $gray
+    color: $white
+    &:hover, &:focus
+      @include box-shadow(inset 0 0 0 1px $gray)
+  &.bg-white
+    background: $white
+    &:hover, &:focus
+      background: $white
+
+.checkbox, .radio
+  display: block
+  line-height: 2.2
+.form-input
+  padding-right: 0.5em
+
+// Shadows
+
+.shadow
+  box-shadow: $box-drop
+
+// Hide / Show
+
+.hide
+  display: none
+.show
+  display: block
+
+// Widths
+
+.full
+  width: 100%
+
+// Tables
+
+.table-fixed
+  table-layout: fixed
+
+// Manually inserting a space into an empty element
+
+.space
+  &:after
+    content: $non-breaking-space
+
+// Social icons
+
+.icon-social-twitter
+  &:hover
+    color: $twitter
+.icon-social-facebook
+  &:hover
+    color: $facebook
+.icon-social-linkedin
+  &:hover
+    color: $linkedin
+.icon-social-google
+  &:hover
+    color: $google
+
+// Font sizing
+
+.i2x
+  font-size: 2.0em
+.i3x
+  font-size: 3.0em
+.i4x
+  font-size: 4.0em
+.i5x
+  font-size: 5.0em
+
+.same-width
+  text-align: center
+  width: 2em
+  display: inline-block
+
+// Images / background
+
+.bg-cover
+  @include background-size-cover
+.bg-contain
+  @include background-size-contain
+.bg-fit
+  @include background-size-fit
+
+.bg-top
+  background-position: center top
+.bg-bottom
+  background-position: center bottom
+.bg-left
+  background-position: left
+.bg-right
+  background-position: right
+.bg-center
+  background-position: center
+
+// Image sizes
+
+img
+  height: auto
+  &.small
+    width: 2em
+    &.fixed-height
+      width: auto
+      max-height: 1.5em
+  &.medium
+    width: 4em
+    &.fixed-height
+      width: auto
+      max-height: 2em
+  &.large
+    width: 6em
+    &.fixed-height
+      width: auto
+      max-height: 2.5em
+
+// Responsive videos
+
+.responsive-video
+  position: relative
+  padding-bottom: 56.25%
+  height: 0
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+// Target IE 10 and above
+
+.ie-10-and-above-only
+  display: none
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+
+  .ie-10-and-above-only
+    display: block
+
+// Mobile
+
+.hide-on-desktop
+  display: none
+
+@media screen and (max-width: $tablet)
+
+  .hide-on-desktop
+    display: block
+
+  .hide-on-tablet
+    display: none
+
+  .list-4-col
+    @include column-count(3)
+
+@media screen and (max-width: $phablet)
+
+  .hide-on-phablet
+    display: none
+
+  .full-on-phablet *
+    width: 100%
+
+  .list-4-col
+    @include column-count(2)
+
+@media screen and (max-width: $handheld)
+
+  .center-on-mobile
+    text-align: center
+
+  .space, .hide-on-mobile
+    display: none
+
+  .responsive
+    width: 100%
+
+  .center-on-mobile
+    text-align: center
+
+  .list-4-col
+    @include column-count(1)
+
+  .contains-iframe
+    padding-left: 0
+    padding-right: 0
+    width: 100%
+
+  .form-input
+    padding-right: 0
+
+  .quotations
+    &:before
+      font-size: 2em
+      left: -0.4em
+
+  .table-responsive-labels
+    td
+      &:before
+        content: attr(data-th)": "
+        font-weight: bold
+
+@media screen and (max-width: $handheld-portrait)
+
+  .responsive-portrait
+    width: 100%
