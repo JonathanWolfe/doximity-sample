@@ -4,11 +4,14 @@
       <div class="section">
         <nav>
           <logo />
-          <label for="menu-toggle" id="menu-toggle-label"></label>
-          <input id="menu-toggle" type="checkbox">
+          <label for="menu-toggle" id="menu-toggle-label" />
+          <input id="menu-toggle" type="checkbox" />
           <ul class="menu">
             <li class="float-right">
-              <a href="#">Articles</a>
+              <a href="#" class="float-right">Articles</a>
+            </li>
+            <li class="float-right">
+              <a href="/" class="float-right">Home</a>
             </li>
           </ul>
         </nav>
