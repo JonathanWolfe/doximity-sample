@@ -3,7 +3,7 @@
     <div class="section padded">
       <div class="col-3-4">
 
-        <!-- Article -->
+        <!-- Each Article -->
         <div class="article">
           <div class="article-hero">
             <a
