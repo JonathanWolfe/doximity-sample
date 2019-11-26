@@ -8,10 +8,10 @@
           <input id="menu-toggle" type="checkbox" />
           <ul class="menu">
             <li class="float-right">
-              <a href="#" class="float-right">All Articles</a>
+              <nuxt-link to="/vital_css" class="float-right">Vital CSS</nuxt-link>
             </li>
             <li class="float-right">
-              <a href="/" class="float-right">Home</a>
+              <nuxt-link to="/" class="float-right">Home</nuxt-link>
             </li>
           </ul>
         </nav>
