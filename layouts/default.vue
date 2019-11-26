@@ -8,7 +8,7 @@
           <input id="menu-toggle" type="checkbox" />
           <ul class="menu">
             <li class="float-right">
-              <a href="#" class="float-right">Articles</a>
+              <a href="#" class="float-right">All Articles</a>
             </li>
             <li class="float-right">
               <a href="/" class="float-right">Home</a>
