@@ -24,6 +24,14 @@
           >
             {{ c }}
           </p>
+          <hr />
+          <p class="center">
+            <a
+              href="/"
+            >
+              <i class="icon-arrow-left-outline" /> More Articles
+            </a>
+          </p>
         </div>
       </div>
     </div>
