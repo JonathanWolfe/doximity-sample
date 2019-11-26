@@ -5,7 +5,7 @@
 
         <!-- Each Article -->
         <div class="article">
-          <div class="article-hero">
+          <div class="article-hero-index">
             <a
               href="#"
             >
@@ -21,18 +21,18 @@
           <h2>
             {{ paginatedBlog.blogs[0].subtitle }}
           </h2>
-          <p
-            v-for="c in paginatedBlog.blogs[0].content"
-          >
-            {{ c }}
-          </p>
           <p class="gray meta">
             Created: {{ paginatedBlog.blogs[0].createdAt }}
             <br />
             Liked: {{ paginatedBlog.blogs[0].liked }}
           </p>
+          <p
+            v-for="c in paginatedBlog.blogs[0].content"
+          >
+            {{ c }}
+          </p>
           <a
-            href="#"
+            href="/article"
             class="btn blue solid"
           >
             Read Article <i class="icon-arrow-right-outline" />
