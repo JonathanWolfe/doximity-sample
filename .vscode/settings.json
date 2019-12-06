@@ -8,5 +8,5 @@
     },
   ],
   "vetur.validation.template": false,
-  "vetur.format.defaultFormatter.html": "prettier"
+  "vetur.format.enable": false,
 }

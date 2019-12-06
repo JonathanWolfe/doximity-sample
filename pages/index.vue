@@ -2,7 +2,6 @@
   <div class="row">
     <div class="section padded">
       <div class="col-4-4">
-
         <!-- Each Article -->
         <div class="article">
           <div class="article-hero-index">
@@ -11,7 +10,7 @@
             >
               <img
                 :src="paginatedBlog.blogs[0].imageUrl"
-              />
+              >
             </a>
           </div>
           <h1>
@@ -22,12 +21,10 @@
           </h2>
           <p class="gray meta">
             Created: {{ paginatedBlog.blogs[0].createdAt }}
-            <br />
+            <br>
             Liked: {{ paginatedBlog.blogs[0].liked }}
           </p>
-          <p
-            v-for="c in paginatedBlog.blogs[0].content"
-          >
+          <p v-for="c in paginatedBlog.blogs[0].content">
             {{ c }}
           </p>
         </div>
@@ -38,13 +35,13 @@
 </template>
 
 <script>
-  import gql from 'graphql-tag';
+import gql from 'graphql-tag';
 
-  export default {
-    name: 'IndexPage',
-    apollo: {
-      paginatedBlog: {
-        query: gql `query paginatedBlog {
+export default {
+  name: 'IndexPage',
+  apollo: {
+    paginatedBlog: {
+      query: gql`query paginatedBlog {
         paginatedBlog {
           pageInfo {
             hasNextPage
@@ -60,7 +57,7 @@
           }
         }
       }`,
-      }
-    }
-  }
+    },
+  },
+};
 </script>
