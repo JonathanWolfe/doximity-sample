@@ -1,24 +1,29 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-use-before-define */
+
 const data = require('../api-schema')();
 
 class BlogMapper {
   _find(id) {
-    return data.blogs.find(b => b.id === id)
+    return data.blogs.find(b => b.id === id);
   }
 
   find(id) {
-    return new Blog(this._find(id))
+    return new Blog(this._find(id));
   }
 
   paginate({ first, offset }) {
-    let blogs = [];
+    const blogs = [];
 
     for (let i = 0; i < first; i++) {
-      const foundBlog = data.blogs[offset + i]
+      const foundBlog = data.blogs[offset + i];
 
       if (foundBlog) {
         blogs.push(new Blog(foundBlog));
       } else {
-        i = first
+        i = first;
       }
     }
 
@@ -31,18 +36,18 @@ class BlogMapper {
     return {
       blogs,
       pageInfo,
-    }
+    };
   }
 
   toggleLiked(id) {
-    const blog = this._find(id)
-    blog.liked = !blog.liked
+    const blog = this._find(id);
+    blog.liked = !blog.liked;
   }
 }
 
 class AuthorMapper {
   find(id) {
-    return new Author(data.authors.find(a => a.id === id))
+    return new Author(data.authors.find(a => a.id === id));
   }
 }
 
@@ -51,26 +56,26 @@ const blogMapper = new BlogMapper();
 
 class Author {
   constructor(obj) {
-    this.id = obj.id
-    this.name = obj.name
-    this.email = obj.email
+    this.id = obj.id;
+    this.name = obj.name;
+    this.email = obj.email;
   }
 }
 
 class Blog {
   constructor(obj) {
-    this.id = obj.id
-    this.title = obj.title
-    this.subtitle = obj.subtitle
-    this.authorId = obj.authorId
-    this.createdAt = obj.createdAt
-    this.imageUrl = obj.imageUrl
-    this.liked = obj.liked
-    this.content = obj.content
+    this.id = obj.id;
+    this.title = obj.title;
+    this.subtitle = obj.subtitle;
+    this.authorId = obj.authorId;
+    this.createdAt = obj.createdAt;
+    this.imageUrl = obj.imageUrl;
+    this.liked = obj.liked;
+    this.content = obj.content;
   }
 
   get author() {
-    return authorMapper.find(this.authorId)
+    return authorMapper.find(this.authorId);
   }
 }
 

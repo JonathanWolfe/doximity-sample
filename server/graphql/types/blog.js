@@ -18,12 +18,12 @@ module.exports = new GraphQLObjectType({
     imageUrl: { type: new GraphQLNonNull(GraphQLString) },
     liked: {
       type: new GraphQLNonNull(GraphQLBoolean),
-      description: 'Represents if the current user has liked this blog post'
+      description: 'Represents if the current user has liked this blog post',
     },
     content: {
       type: new GraphQLList(new GraphQLNonNull(GraphQLString)),
-      description: 'An array of the paragraphs of this content'
+      description: 'An array of the paragraphs of this content',
     },
-    author: { type: authorType }
+    author: { type: authorType },
   },
 });

@@ -4,7 +4,7 @@ const {
 } = require('graphql');
 
 const blogType = require('./blog');
-const pageInfoType = require('./pageInfo')
+const pageInfoType = require('./pageInfo');
 
 module.exports = new GraphQLObjectType({
   name: 'PaginatedBlog',

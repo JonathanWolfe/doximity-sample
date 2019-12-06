@@ -6,12 +6,12 @@ const {
   GraphQLString,
 } = require('graphql');
 
-const { blogMapper } = require('./dataMapper')
+const { blogMapper } = require('./dataMapper');
 
-const paginatedBlog = require('./types/paginatedBlog')
-const blogType = require('./types/blog')
+const paginatedBlog = require('./types/paginatedBlog');
+const blogType = require('./types/blog');
 
-var schema = new GraphQLSchema({
+const schema = new GraphQLSchema({
   mutation: new GraphQLObjectType({
     name: 'RootMutationType',
     fields: {
@@ -19,14 +19,14 @@ var schema = new GraphQLSchema({
         type: blogType,
         description: 'Will set blog liked to the opposite of current Boolean value',
         args: {
-          id: { type: new GraphQLNonNull(GraphQLString) }
+          id: { type: new GraphQLNonNull(GraphQLString) },
         },
-        resolve: function(_, { id }) {
-          blogMapper.toggleLiked(id)
-          return blogMapper.find(id)
-        }
-      }
-    }
+        resolve(_, { id }) {
+          blogMapper.toggleLiked(id);
+          return blogMapper.find(id);
+        },
+      },
+    },
   }),
   query: new GraphQLObjectType({
     name: 'RootQueryType',
@@ -45,21 +45,21 @@ var schema = new GraphQLSchema({
             description: 'The index in the list you would like to select from inclusively',
           },
         },
-        resolve: function(_, { offset, first }) {
-          return blogMapper.paginate({ offset, first })
-        }
+        resolve(_, { offset, first }) {
+          return blogMapper.paginate({ offset, first });
+        },
       },
       blog: {
         type: blogType,
         args: {
-          id: { type: new GraphQLNonNull(GraphQLString) }
+          id: { type: new GraphQLNonNull(GraphQLString) },
         },
-        resolve: function(_, { id }) {
-          return blogMapper.find(id)
-        }
+        resolve(_, { id }) {
+          return blogMapper.find(id);
+        },
       },
     },
   }),
 });
 
-module.exports = schema
+module.exports = schema;

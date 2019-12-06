@@ -1,8 +1,6 @@
 const faker = require('faker');
 
 function randomNumber(min = 3, max = 10) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
@@ -11,13 +9,13 @@ function createAuthor() {
     id: faker.random.uuid(),
     name: faker.name.findName(),
     email: faker.internet.email(),
-  }
+  };
 }
 
 function createBlog(authorId) {
-  let content = [];
+  const content = [];
 
-  for (let i = 0; i <= randomNumber(1,3); i++) {
+  for (let i = 0; i <= randomNumber(1, 3); i++) {
     content.push(faker.lorem.paragraph());
   }
 
@@ -30,17 +28,17 @@ function createBlog(authorId) {
     title: faker.company.catchPhrase(),
     subtitle: faker.hacker.phrase(),
     content,
-  }
+  };
 }
 
 module.exports = () => {
-  let data = {
+  const data = {
     authors: [],
     blogs: [],
   };
 
   for (let i = 0; i < 10; i++) {
-    let author = createAuthor();
+    const author = createAuthor();
     data.authors.push(author);
 
     for (let j = 0; j <= randomNumber(); j++) {
@@ -49,4 +47,4 @@ module.exports = () => {
   }
 
   return data;
-}
+};
