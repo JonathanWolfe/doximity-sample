@@ -9,4 +9,11 @@
   ],
   "vetur.validation.template": false,
   "vetur.format.enable": false,
+  "files.exclude": {
+    "**/.nuxt": true,
+    "**/*.lock": true
+  },
+  "search.exclude": {
+    "**/coverage": true
+  },
 }

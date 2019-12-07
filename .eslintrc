@@ -5,12 +5,17 @@
     "es6": true,
     "jest": true
   },
+  "plugins": [
+    "vue",
+    "html"
+  ],
   "extends": [
     "eslint:recommended",
     "airbnb-base",
     "plugin:vue/recommended"
   ],
   "rules": {
+    "max-len": "off",
     "no-plusplus": "off",
     "arrow-parens": [
       "error",

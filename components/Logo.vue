@@ -3,11 +3,13 @@
     href="/"
     class="logo"
   >
-    <img src="~assets/images/logo-doximity.svg">
+    <img src="../assets/images/logo-doximity.svg">
   </a>
 </template>
 
 
 <script>
-export default {};
+export default {
+  name: 'Logo',
+};
 </script>
