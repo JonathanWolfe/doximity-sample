@@ -11,7 +11,7 @@
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "generate": "nuxt generate",
     "test": "jest",
-    "lint": "eslint ./{components,layouts,pages,server,store,test}/**/*.{js,vue} ./*.js --fix"
+    "lint": "eslint ./{components,layouts,pages,test}/**/*.{js,vue} ./*.js --fix"
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.0-rc17",
