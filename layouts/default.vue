@@ -3,7 +3,7 @@
     <div class="row header">
       <div class="section">
         <nav>
-          <logo />
+          <Logo />
           <label
             id="menu-toggle-label"
             for="menu-toggle"
@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import logo from '../components/logo.vue';
+import Logo from '../components/logo.vue';
 
 export default {
   components: {
-    logo,
+    Logo,
   },
 };
 </script>

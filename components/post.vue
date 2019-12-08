@@ -37,7 +37,6 @@ export default {
   props: {
     post: {
       type: Object,
-      required: true,
       default() {
         return {
           imageUrl: '',
@@ -77,14 +76,8 @@ export default {
             id: this.post.id,
           },
         })
-        .then(data => {
-          // Result
-          console.log(data); // we don't care about the result in this exercise
-        })
-        .catch(error => {
-          // Error
-          console.error(error); // in real apps we'd probably display an error modal
-        });
+        .then(data => data) // we don't care about the result in this exercise
+        .catch(/* istanbul ignore next */ error => { throw error; }); // in real apps we'd probably display an error modal
     },
   },
 };

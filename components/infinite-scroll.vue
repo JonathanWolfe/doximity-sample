@@ -35,6 +35,7 @@ export default {
     },
   },
   mounted() {
+    /* istanbul ignore next */
     window.addEventListener('scroll', () => {
       this.atBottom = this.bottomVisible();
     });
@@ -43,13 +44,13 @@ export default {
   },
   methods: {
     bottomVisible() {
-      const parent = this.scrollingElement instanceof HTMLElement ? this.scrollingElement : document.documentElement;
+      const parent = this.scrollingElement != null ? this.scrollingElement : document.documentElement;
       const scrollAmount = parent.scrollTop != null ? parent.scrollTop : window.scrollY;
       const innerHeight = parent.clientHeight;
-      const elemntHeight = parent.scrollHeight;
-      const bottomOfPage = (innerHeight + scrollAmount) >= (elemntHeight * 0.95);
+      const elementHeight = parent.scrollHeight;
+      const bottomOfPage = (innerHeight + scrollAmount) >= (elementHeight * 0.95);
 
-      return bottomOfPage || (elemntHeight < innerHeight);
+      return bottomOfPage || (elementHeight < innerHeight);
     },
     loadNext() {
       if (!this.hasMore || !this.apollo.queries || !this.apollo.queries[this.queryName]) return;

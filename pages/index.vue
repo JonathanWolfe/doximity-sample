@@ -57,5 +57,10 @@ export default {
     Post,
     InfiniteScroll,
   },
+  data() {
+    return {
+      paginatedBlog: { blogs: [] },
+    };
+  },
 };
 </script>

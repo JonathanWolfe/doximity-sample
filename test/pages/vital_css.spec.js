@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
-import logo from '../components/logo.vue';
+import Page from '../../pages/vital_css.vue';
 
-describe('logo', () => {
+describe('Vital CSS Page', () => {
   test('is a Vue instance', () => {
-    const wrapper = mount(logo);
+    const wrapper = mount(Page);
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 });
