@@ -12,7 +12,12 @@
     <p class="gray meta">
       Created: {{ post.createdAt }}
       <br>
-      Liked: {{ post.liked }}
+      Liked: <input
+        id="liked"
+        v-model="liked"
+        type="checkbox"
+        name="liked"
+      >
     </p>
 
     <p
@@ -25,6 +30,8 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
   name: 'Post',
   props: {
@@ -41,6 +48,43 @@ export default {
           content: [],
         };
       },
+    },
+  },
+  apollo: {},
+  computed: {
+    liked: {
+      get() {
+        return this.post.liked;
+      },
+      set(newValue) {
+        this.post.liked = newValue;
+        this.updateLiked();
+      },
+    },
+  },
+  methods: {
+    updateLiked() {
+      return this.$apollo
+        .mutate({
+          // Query
+          mutation: gql`mutation ($id: String!) {
+          toggleBlogLiked(id: $id) {
+            id
+          }
+        }`,
+          // Parameters
+          variables: {
+            id: this.post.id,
+          },
+        })
+        .then(data => {
+          // Result
+          console.log(data); // we don't care about the result in this exercise
+        })
+        .catch(error => {
+          // Error
+          console.error(error); // in real apps we'd probably display an error modal
+        });
     },
   },
 };
